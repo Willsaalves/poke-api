@@ -1,3 +1,12 @@
+/* src/styles/App.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Adicione estilos globais personalizados abaixo, se necessário */
+
+
+
 .App {
   text-align: center;
 }

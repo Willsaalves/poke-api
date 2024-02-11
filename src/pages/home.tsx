@@ -1,15 +1,13 @@
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import SearchBar from '../components/SearchBar';
-import PokemonList from '../components/PokemonList';
-import '../styles/styles.css';
-import logo from '../assets/Pokemon-logo.png'
-
-const API_BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import SearchBar from "../components/SearchBar";
+import PokemonList from "../components/PokemonList";
+import logo from "../assets/Pokemon-logo.png";
+const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
 const AppPage: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [pokemonList, setPokemonList] = useState<any[]>([]);
   const [filteredPokemonList, setFilteredPokemonList] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -22,7 +20,7 @@ const AppPage: React.FC = () => {
       setPokemonList(newPokemonList);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching Pokemon:', error);
+      console.error("Error fetching Pokemon:", error);
       setLoading(false);
     }
   };
@@ -32,7 +30,9 @@ const AppPage: React.FC = () => {
     setSearchTerm(term);
 
     if (term) {
-      const filteredList = pokemonList.filter(pokemon => pokemon.name.includes(term));
+      const filteredList = pokemonList.filter((pokemon) =>
+        pokemon.name.includes(term)
+      );
       setFilteredPokemonList(filteredList);
     } else {
       setFilteredPokemonList(pokemonList);
@@ -40,15 +40,17 @@ const AppPage: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchPokemon('');
+    fetchPokemon("");
   }, []);
 
   useEffect(() => {
-    handleSearchChange({ target: { value: searchTerm } } as React.ChangeEvent<HTMLInputElement>);
+    handleSearchChange({
+      target: { value: searchTerm },
+    } as React.ChangeEvent<HTMLInputElement>);
   }, [searchTerm, pokemonList]);
 
   return (
-    <div className="App">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <img src={logo} alt="Logo" className="logo" />
       <SearchBar searchTerm={searchTerm} onSearchChange={handleSearchChange} />
       <PokemonList pokemonList={filteredPokemonList} loading={loading} />
@@ -57,3 +59,5 @@ const AppPage: React.FC = () => {
 };
 
 export default AppPage;
+
+<img src={logo} alt="Logo" className="logo" />;
