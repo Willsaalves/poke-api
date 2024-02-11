@@ -1,4 +1,4 @@
-// src/pages/App.tsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from '../components/SearchBar';
