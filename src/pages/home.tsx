@@ -60,4 +60,3 @@ const AppPage: React.FC = () => {
 
 export default AppPage;
 
-<img src={logo} alt="Logo" className="logo" />;
